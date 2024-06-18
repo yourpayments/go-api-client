@@ -23,8 +23,8 @@ go get -u github.com/yourpayments/go-api-client
 1. [Cамый простой платёж](examples/simple_get_payment_link.go)
 2. [Списание средств](examples/capture.go)
 3. [Возврат средств](examples/refund.go)
-4. [Запрос отчёта в формате Json](examples/general_report.php)
-4. [Получение вебхуков](examples/webhook.php)
+4. [Запрос отчёта в формате Json](examples/general_report.go)
+4. [Получение вебхуков](examples/webhook.go)
 
 ## Ссылки
 - [НКО «Твои платежи»](https://YPMN.ru/)
