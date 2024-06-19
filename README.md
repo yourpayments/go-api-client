@@ -11,7 +11,7 @@ go mod init
 Затем импортируйте в программу модуль ypmn:
 ```go
 import (
-"github.com/yourpayments/go-api-client"
+    "github.com/yourpayments/go-api-client"
 )
 ```
 Также, вы можете явно добавить пакет в проект:
