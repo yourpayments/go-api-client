@@ -1,6 +1,6 @@
-# «Твои платежи»: Интеграция для Go
+# «Твои платежи»: Интеграция на Go
 Готовая библиотека + подробные примеры. 
-![](https://repository-images.githubusercontent.com/638835276/ff494b04-d65b-4843-8759-e85c689a7e80)
+![](https://repository-images.githubusercontent.com/816212690/e94dc73f-3bcb-4737-9336-793940827cd3)
 
 
 ## Установка за 1 минуту
