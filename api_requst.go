@@ -16,8 +16,7 @@ import (
 )
 	
 const HOST	 = "https://secure.ypmn.ru"
-// const SANDBOX_HOST  = "https://sandbox.ypmn.ru" 
-const SANDBOX_HOST  = "https://gap.ru.payu.local" 
+const SANDBOX_HOST  = "https://sandbox.ypmn.ru" 
 
 const AUTHORIZE_API = "/api/v4/payments/authorize"
 const CAPTURE_API = "/api/v4/payments/capture"
@@ -25,6 +24,7 @@ const REFUND_API = "/api/v4/payments/refund"
 const REPORT_GENERAL_API = "/api/v4/reports/general"
 const REPORT_CHART_API = "/api/v4/reports/chart"
 const REPORT_ORDER_API = "/api/v4/reports/orders"
+const ORDER_STATUS_API = "/api/v4/payments/status"
 
 type ApiRequest struct {
 	Merchant Merchant
@@ -136,6 +136,11 @@ func (request ApiRequest) SendReportGeneralRequest(dateStart time.Time, dateEnd 
 	return request.sendGetRequest(data, REPORT_GENERAL_API)	
 }
 
+func (request ApiRequest) SendOrderStatusRequest(merchantPaymentReference string) (map[string]interface{}, error) {
+	var data map[string]interface{}
+	return request.sendGetRequest(data, ORDER_STATUS_API + "/" +  merchantPaymentReference)	
+}
+
 func (request ApiRequest) SendReportChartRequest(dateStart time.Time, dateEnd time.Time, periodLength string) (map[string]interface{}, error){
 	type ChartReportRequest struct{
 		DateStart string `url:"dateStart"`
@@ -218,7 +223,13 @@ func (request ApiRequest) sendGetRequest(data interface{}, api string) (map[stri
 	vals, _ := query.Values(data)
 	params := vals.Encode()
 	
-	url := urlHost + api + "/?" + params
+	var url string
+
+	if len(vals) > 0 {
+		url = urlHost + api + "/?" + params
+	} else {
+		url = urlHost + api	
+	}
 
 	req, err := http.NewRequest("GET", url, nil)
 

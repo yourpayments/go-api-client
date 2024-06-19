@@ -1,8 +1,7 @@
 package main
 
 import(
-	"fmt"
-	"time"
+	"fmt"	
 	"github.com/yourpayments/go-api-client"
 )
 
@@ -19,21 +18,7 @@ func main(){
 		DebugModeIsOn: true,
 	}
 
-	responce, err := apiRequest.SendReportGeneralRequest(time.Now().AddDate(0, 0, -7),time.Now(), ypmn.DAY)
-
-	if(err != nil){
-		panic("Error: " + err.Error())
-	}
-	
-	code, _ := responce["code"].(float64)
-
-	if(int(code) == 429){
-		panic("Слишком много запросов")
-	}
-	if(int(code) != 200){
-		fmt.Println(responce)
-		panic("Bad responce")
-	}
+	responce, _ := apiRequest.SendOrderStatusRequest("60d19e2c-90b1-4677-90ce-f4a42fcbcff9")
 
 	fmt.Println(responce)
 

@@ -63,13 +63,14 @@ func main(){
 	}
 	
 
-	code, _ := responce["code"].(int64)
+	code, _ := responce["code"].(float64)
 
-	if(responce["code"] == 429){
+	if(int(code) == 429){
 		panic("Слишком много запросов")
 	}
-	if(responce["code"] != 200){
-		panic("Bad responce code: " + string(code))
+	if(int(code) != 200){
+		fmt.Println(responce)
+		panic("Bad responce")
 	}
 
 	paymentResult, _ := responce["paymentResult"].(map[string]interface{})
