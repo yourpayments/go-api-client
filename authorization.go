@@ -3,7 +3,12 @@ package ypmn
 const (
     CCVISAMC string = "CCVISAMC"
     FASTER_PAYMENTS string = "FASTER_PAYMENTS"
-    SOM string = "SOM"
+    BNPL string = "BNPL"
+    INTCARD string = "INTCARD" 
+    ALFAPAY string = "ALFAPAY" 
+    SBERPAY string = "SBERPAY" 
+    MIRPAY string = "MIRPAY" 
+    TPAY  string = "TPAY" 
 )
 
 type Authorization struct {
