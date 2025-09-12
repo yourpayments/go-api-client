@@ -10,6 +10,6 @@ type Refund struct{
 }
 
 type MarketplaceRefundDetails struct {
-	"Merchant": `json:"merchant"`
-	"Amount": `json:"amount"`
+	Merchant string `json:"merchant"`
+	Amount float64 `json:"amount"`
 }
