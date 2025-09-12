@@ -11,6 +11,6 @@ type Product struct {
 
 
 type MarketplaceProductDetails struct {
-	"Version" int `json:"version"`
-	"MerchantCode" string `json:"merchantCode"`
+	Version int `json:"version"`
+	MerchantCode string `json:"merchantCode"`
 }
